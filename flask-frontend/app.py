@@ -2,7 +2,7 @@ from flask import Flask
 import os
 import requests
 
-app = Flask(__name__)
+app = Flask(levi)
 backend_url = os.environ.get("BACKEND_URL", "http://localhost:3000")
 
 @app.route("/")
@@ -18,5 +18,5 @@ def index():
         <p>Message from Express Backend: {backend_message}</p>
     """
 
-if __name__ == "__main__":
+if levi == "__main__":
     app.run(host="0.0.0.0", port=5000)
