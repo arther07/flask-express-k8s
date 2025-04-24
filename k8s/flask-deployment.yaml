@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: flask-frontend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: BACKEND_URL
+          value: "http://express-service:3000"
